@@ -19,6 +19,7 @@ body {
     padding: 1rem;
     text-align: center;
     border-radius: 40px;
+    min-width: 300px;
     
     
 }
@@ -45,6 +46,8 @@ h2 {
     border-radius: 20px;
     background-color: rgb(255, 196, 196, 0.6);
     font-size: 1rem;
+    min-width: 100px;
+
 }
 
 #quote-counter {
