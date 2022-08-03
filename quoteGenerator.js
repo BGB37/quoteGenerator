@@ -68,13 +68,21 @@ const quotes = [
         quote: '"You have brains in your head. You have feet in your shoes. You can steer yourself any direction you choose."',
         person:'- Dr. Seuss'
     },
-    {
+    {   /*15*/
         quote: '"The past cannot be changed. The future is yet in your power."',
         person:'- Confucius'
     },
-    {
+    {   /*16*/
         quote: '"Start where you are. Use what you have. Do what you can."',
         person:'- Arthur Ashe'
+    },
+    {   /*17*/
+        quote: '"Education: the path from cocky ignorance to miserable uncertainty."',
+        person:'- Mark Twain'
+    },
+    {   /*18*/
+        quote: '"What you do speaks so loudly that I cannot hear what you say."',
+        person:'- Ralph Waldo Emerson'
     }  
     
 ];
@@ -88,11 +96,16 @@ btn.addEventListener('click', function() {
     quoteText.innerText = quotes[random].quote;
     authorName.innerText = quotes[random].person;
     
-    // Code Counter
-    if(temp != random) {
-    count++;
+     // Code Counter
+  if(temp !== random) {
+        count++;
+        console.log(count);
+        if (count == 1) {
+        quoteCounter.innerText = "You've seen " + count + " quote.";
+    }   else {
     quoteCounter.innerText = "You've seen " + count + " quotes.";
-    } else {
+    }
+ } else {
         quoteCounter.innerText = "You've seen this quote before.";
     }
     temp = random;
