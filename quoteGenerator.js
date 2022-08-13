@@ -5,7 +5,10 @@ const quoteText = document.getElementById('quote-text');
 const authorName = document.getElementById('author-name');
 const btn = document.getElementById('btn');
 const quoteCounter = document.getElementById('quote-counter');
+const previousQuoteBtn = document.getElementById('previous-quote-btn');
+const shownQuotes = [];
 let count = 0;
+let shownQuoteCounter = 0;
 let temp = 0;
 const quotes = [
     {    /*0*/
@@ -96,6 +99,13 @@ btn.addEventListener('click', function() {
     quoteText.innerText = quotes[random].quote;
     authorName.innerText = quotes[random].person;
     
+
+    // Add the shown quotes in to an array to show them again when clicked on the "Previous Quote" button.
+     shownQuotes.push(quotes[random]);
+     console.log(shownQuotes);
+
+     
+    
      // Code Counter
   if(temp !== random) {
         count++;
@@ -112,5 +122,11 @@ btn.addEventListener('click', function() {
 
 });
     
-   
-   
+   previousQuoteBtn.addEventListener('click', function() {
+    if(shownQuotes.length === 1) {
+        alert("You've only seen one quote yet!");
+    } else {
+        quoteText.innerText = shownQuotes[shownQuotes.length - 2].quote;
+ 
+    }
+});
