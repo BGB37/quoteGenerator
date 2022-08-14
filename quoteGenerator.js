@@ -86,7 +86,24 @@ const quotes = [
     {   /*18*/
         quote: '"What you do speaks so loudly that I cannot hear what you say."',
         person:'- Ralph Waldo Emerson'
-    }  
+    },
+    {   /*19*/
+    quote: '"Great minds discuss ideas; average minds discuss events; small minds discuss people."',
+    person:'- Eleanor Roosevelt'
+    },
+    {   /*20*/
+    quote: '"The future belongs to those who prepare for it today."',
+    person:'- Malcolm X'
+    },
+    {   /*21*/
+    quote: '"The only impossible journey is the one you never begin."',
+    person:'- Tony Robbins'
+    },
+    {   /*22*/
+    quote: '"Insanity is doing the same thing over and over again and expecting different results."',
+    person:'- Albert Einstein'
+    },
+
     
 ];
 
@@ -121,12 +138,15 @@ btn.addEventListener('click', function() {
     temp = random;
 
 });
-    
+    // Previous Quote Button
+    let i = 2;
    previousQuoteBtn.addEventListener('click', function() {
     if(shownQuotes.length === 1) {
         alert("You've only seen one quote yet!");
     } else {
-        quoteText.innerText = shownQuotes[shownQuotes.length - 2].quote;
+        quoteText.innerText = shownQuotes[shownQuotes.length - i].quote;
+        authorName.innerText = shownQuotes[shownQuotes.length - i].person;
+        i++;
  
     }
 });
