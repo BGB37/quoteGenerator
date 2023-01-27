@@ -17,10 +17,7 @@ body {
     margin: 15% auto 0px auto; 
     text-align: center;
     border-radius: 40px;
-    min-width: 300px;
-
-    
-    
+    min-width: 300px;   
 }
 
 h2 {
@@ -29,11 +26,11 @@ h2 {
 }
 
 #quote-text {
-    font-size: 4rem;
+    font-size: 3rem;
 }
 
 #author-name {
-    font-size: 3rem;
+    font-size: 2.5rem;
     
 }
 
@@ -47,12 +44,18 @@ h2 {
     font-size: 1rem;
     min-width: 100px;
     box-shadow: 1px 2px;
+    transition-duration: 0.5s;
+}
 
+#btn:hover {
+    width: 17%;
+    height: 33px;
+    cursor: pointer;
 }
 
 #quote-counter {
     text-align: right;
-    font-size: 2rem;
+    font-size: 1.5rem;
     
 }
 .save-btn-container {
@@ -75,5 +78,79 @@ h2 {
     width: 170px;
     height: 53px;
     font-size: 1.1rem;
+    cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px) {
+    body {
+        height: 100vh;
+        background: url(https://imgs.search.brave.com/VQBUsELXWtjmH4JsND8Dzjphe35no81XA_DjQ6XN1M0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYxMDA3/NDQuanBn) no-repeat center center/ cover;
+        font-family: 'Caveat', cursive;     
+    }
+     
+    #container {
+    background-color: rgb(255, 196, 196, 0.6);
+    width: 50%;
+    padding: 1rem;
+    margin: 15% auto 0px auto; 
+    text-align: center;
+    border-radius: 30px;
+    min-width: 300px;   
+    }
+
+    h2 {
+    padding: 5px;
+    color: black;
+    }
+
+    #quote-text {
+    font-size: 2rem;
+    }
+
+    #author-name {
+    font-size: 1.5rem;
+    }
+
+    #btn {
+    display: block;
+    margin: auto;
+    width: 15%;
+    height: 30px;
+    border-radius: 20px;
+    background-color: rgb(255, 196, 196, 0.6);
+    font-size: 1rem;
+    min-width: 100px;
+    box-shadow: 1px 2px;
+    }
+
+    #quote-counter {
+    text-align: right;
+    font-size: 1rem;
+    }
+
+    .save-btn-container {
+    display: block;
+    }
+
+    #previous-quote-btn {
+    display: block;
+    font-size: 0.8rem;
+    width: 25%;
+    height: 15%;
+    margin: 20px 5%;
+    border-radius: 20px;
+    background-image: linear-gradient(240deg, rgb(60, 207, 78,0.7),rgb(43, 122, 11,0.7));
+    transition-duration: 0.5s;
+    box-shadow: 3px 4px;
+    }
+
+    #previous-quote-btn:hover {
+    background-image: linear-gradient(240deg, rgb(43, 122, 11,1),rgb(60, 207, 78,1));
+    width: 170px;
+    height: 53px;
+    font-size: 1.1rem;
     cursor: grab;
+    }
+
 }
