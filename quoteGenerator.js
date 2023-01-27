@@ -103,50 +103,99 @@ const quotes = [
     quote: '"Insanity is doing the same thing over and over again and expecting different results."',
     person:'- Albert Einstein'
     },
-
-    
+    {   /*23*/
+    quote: '"What you do makes a difference. And you have to decide what kind of difference you want to make."',
+    person:'- Jane Goodall'
+    },
+    {   /*24*/
+    quote: '"The cure for pain is in the pain."',
+    person:'- Rumi'
+    },
+    {   /*25*/
+    quote: '"The work of today is the history of tomorrow, and we are its makers."',
+    person:'- Juliette Gordon Low'
+    },
+    {   /*26*/
+    quote: '"Twenty years from now you will be more disappointed by the things that you didn\'t do than by the ones you did do. So throw off the bowlines. Sail away from the safe harbor. Catch the trade winds in your sails."',
+    person:'- Mark Twain'
+    },
+    {   /*27*/
+    quote: '"I have not failed. I\'ve just found 10,000 ways that won\'t work."',
+    person:'- Thomas A. Edison'
+    },
+    {   /*28*/
+    quote: '"In the depth of winter, I finally learned that within me there lay an invincible summer."',
+    person:'- Albert Camus'
+    },
+    {   /*29*/
+    quote: '"Don\'t be satisfied with stories, how things have gone with others. Unfold your own myth."',
+    person:'- Rumi'
+    },
+    {   /*30*/
+    quote: '"Success is a journey, not a destination."',
+    person:'- Arthur Ashe'
+    }
 ];
 
+// A function to refresh the page. I will use it when all the quotes are seen.
+function refreshThePage() {  
+    document.location.reload(true);
+}
 
 //What will happen when button is clicked?
-
 btn.addEventListener('click', function() {
-    
+    // Check if the quote[random] has already shown or not. If hasn't shown yet, show that quote[random].
     let random = Math.floor(Math.random()*quotes.length);
+    while(shownQuotes.includes(quotes[random])) 
+    {
+        random = Math.floor(Math.random()*quotes.length);
+    }
     quoteText.innerText = quotes[random].quote;
     authorName.innerText = quotes[random].person;
     
-
     // Add the shown quotes in to an array to show them again when clicked on the "Previous Quote" button.
      shownQuotes.push(quotes[random]);
      console.log(shownQuotes);
 
-     
-    
      // Code Counter
-  if(temp !== random) {
         count++;
-        console.log(count);
-        if (count == 1) {
-        quoteCounter.innerText = "You've seen " + count + " quote.";
-    }   else {
-    quoteCounter.innerText = "You've seen " + count + " quotes.";
-    }
- } else {
-        quoteCounter.innerText = "You've seen this quote before.";
-    }
-    temp = random;
-
-});
+        //console.log(count);
+        if (count == 1) 
+        {
+            quoteCounter.innerText = "You've seen 1 quote.";
+        }   
+        else if (shownQuotes.length == quotes.length)
+        {
+            quoteCounter.innerText = "You've seen all quotes.";
+            btn.style.visibility = "hidden";
+            setTimeout(refreshThePage, 10000); // It did not work untill i passed a function as the first argument.
+        } 
+        else 
+        {
+            quoteCounter.innerText = "You've seen " + count + " quotes.";
+        }
+        //else {
+        //    quoteCounter.innerText = "You've seen " + count + " quotes.";
+        //}
+    }  
+);
+    let i = 1;
     // Previous Quote Button
-    let i = 2;
-   previousQuoteBtn.addEventListener('click', function() {
-    if(shownQuotes.length === 1) {
+    previousQuoteBtn.addEventListener('click', function() {
+    if(shownQuotes.length === 1) 
+    {
         alert("You've only seen one quote yet!");
-    } else {
+    } 
+    else 
+    {
         quoteText.innerText = shownQuotes[shownQuotes.length - i].quote;
         authorName.innerText = shownQuotes[shownQuotes.length - i].person;
         i++;
- 
     }
 });
+
+
+/* Ideas about the project
+- Add a timer to show the time spent in the site.
+- Don't show same quote foe two times in a session. You can create an array of the objects that have been shown and show the new quote if that is not a member of the array.
+- Add a "Save Quote" button. */
