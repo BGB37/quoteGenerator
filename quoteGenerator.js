@@ -134,17 +134,42 @@ const quotes = [
     {   /*30*/
     quote: '"Success is a journey, not a destination."',
     person:'- Arthur Ashe'
+    },
+    {   /*31*/
+    quote: '"Nothing in life is to be feared, it is only to be understood.Now is the time to understand more, so that we may fear less."',
+    person:'- Marie Curie'
+    },
+    {   /*32*/
+    quote: '"Life isn\'t about waiting for the storm to pass... It\'s about learning to dance in the rain."',
+    person:'- Vivian Greene'
+    },
+    {   /*33*/
+    quote: '"What we think, we become.All that we are arises with our thoughts.With our thoughts, we make the world."',
+    person:'- The Buddha'
+    },
+    {   /*34*/
+    quote: '"Security is mostly a superstition. It does not exist in nature, nor do the children of men as a whole experience it. Avoiding danger is no safer in the long run than outright exposure. Life is either a daring adventure, or nothing."',
+    person:'- Helen Keller'
+    },
+    {   /*35*/
+    quote: '"If you spend too much time thinking about a thing, you’ll never get it done. Make at least one definitive move daily toward your goal."',
+    person:'- Bruce Lee'
+    },
+    {   /*36*/
+    quote: '"When you know that you\'re capable of dealing with whatever comes, you have the only security the world has to offer."',
+    person:'- Harry Browne'
     }
 ];
 
-// A function to refresh the page. I will use it when all the quotes are seen.
+// A function to refresh the page.
 function refreshThePage() {  
     document.location.reload(true);
 }
-
 //What will happen when button is clicked?
+
 btn.addEventListener('click', function() {
-    // Check if the quote[random] has already shown or not. If hasn't shown yet, show that quote[random].
+    // Random üretildiğinde gösterilen indis numaralarından biri mi bak. Değilse o numaralı quotu göster.
+
     let random = Math.floor(Math.random()*quotes.length);
     while(shownQuotes.includes(quotes[random])) 
     {
@@ -168,7 +193,7 @@ btn.addEventListener('click', function() {
         {
             quoteCounter.innerText = "You've seen all quotes.";
             btn.style.visibility = "hidden";
-            setTimeout(refreshThePage, 10000); // It did not work untill i passed a function as the first argument.
+            setTimeout(refreshThePage, 10000); // It did not work until i passed a function as the first argument.
         } 
         else 
         {
@@ -179,8 +204,9 @@ btn.addEventListener('click', function() {
         //}
     }  
 );
-    let i = 1;
+
     // Previous Quote Button
+    let i = 2;
     previousQuoteBtn.addEventListener('click', function() {
     if(shownQuotes.length === 1) 
     {
@@ -198,4 +224,6 @@ btn.addEventListener('click', function() {
 /* Ideas about the project
 - Add a timer to show the time spent in the site.
 - Don't show same quote foe two times in a session. You can create an array of the objects that have been shown and show the new quote if that is not a member of the array.
-- Add a "Save Quote" button. */
+- Add a "Save Quote" button.
+- Can i clear the cash using the codes?
+*/
