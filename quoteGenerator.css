@@ -9,7 +9,21 @@ body {
     font-family: 'Caveat', cursive;
     
 }
- 
+
+#home-btn {
+    position: absolute;
+    display: inline-block;
+    width: 3rem;
+    height: 3rem;
+    top: 1%;
+    left: 1%;
+}
+
+#home-btn:hover {
+    transition-duration: 0.5s;
+    background-color: rgb(255, 196, 196, 0.2);
+    border-radius: 10%;
+}
 #container {
     background-color: rgb(255, 196, 196, 0.6);
     width: 50%;
