@@ -9,17 +9,15 @@
     <title>BGB's Quote Generator</title>
 </head>
 <body>
-    <div id="home-btn"><a><img src="" alt="Home button"></a></div>
+    <div id="home-btn-div"><a href="https://bgbasoglu.com"><img id="home-btn" src="images/home.png" alt="Home button"></a></div>
     <div id="container">
         <h2 id="quote-text">Click the button below to see meaningful quotes. </h2>
         <h2 id="author-name">Author's name will be written here.</h2>
-        <div id="button-area">
-            <button id="btn">New Quote!</button>
-            <h3 id="quote-counter">Counter</h3>
-        </div>
+        <h3 id="quote-counter">Counter</h3>
     </div>
-    <div class="save-btn-container">
-        <button id="previous-quote-btn">Previous Quote</button>
+    <div id="button-container">
+        <button id="previous-quote-btn" class="buttons">&lt-- Previous Quote</button>
+        <button id="new-quote-btn" class="buttons">New Quote --></button>
     </div>
 </body>
 <script src="quoteGenerator.js"></script>

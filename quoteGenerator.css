@@ -7,14 +7,20 @@ body {
     height: 100vh;
     background: url(https://imgs.search.brave.com/VQBUsELXWtjmH4JsND8Dzjphe35no81XA_DjQ6XN1M0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYxMDA3/NDQuanBn) no-repeat center center/ cover;
     font-family: 'Caveat', cursive;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
     
 }
 
 #home-btn {
     position: absolute;
     display: inline-block;
-    width: 3rem;
-    height: 3rem;
+    padding: 0.5rem;
+    width: 2rem;
+    height: 2rem;
     top: 1%;
     left: 1%;
 }
@@ -28,7 +34,6 @@ body {
     background-color: rgb(255, 196, 196, 0.6);
     width: 50%;
     padding: 1rem;
-    margin: 15% auto 0px auto; 
     text-align: center;
     border-radius: 40px;
     min-width: 300px;   
@@ -48,123 +53,68 @@ h2 {
     
 }
 
-#btn {
-    display: block;
-    margin: auto;
-    width: 15%;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(255, 196, 196, 0.6);
-    font-size: 1rem;
-    min-width: 100px;
-    box-shadow: 1px 2px;
-    transition-duration: 0.5s;
+/* ----------------- BUTTONS -----------------  */
+
+.buttons {
+    min-width: 10rem;
+    border-radius: 1rem;
+    padding: 1rem;
 }
 
-#btn:hover {
-    width: 17%;
-    height: 33px;
-    cursor: pointer;
+.buttons:hover {
+    opacity: 1;
 }
+
+#new-quote-btn {
+    background-color: rgba(83, 225, 8, 0.6);
+}
+
+#new-quote-btn:hover {
+    background-color: rgba(83, 225, 8, 1);
+}
+
+#previous-quote-btn {
+    background-color: rgba(220, 10, 8, 0.6);
+}
+
+#previous-quote-btn:hover {
+    background-color: rgba(220, 10, 8, 1);
+}
+
+/* -------------------------------------------------------------------- */
 
 #quote-counter {
     text-align: right;
     font-size: 1.5rem;
-    
-}
-.save-btn-container {
-    display: block;
 }
 
-#previous-quote-btn {
-    display: block;
-    width: 150px;
-    height: 50px;
-    margin: 20px 5%;
-    border-radius: 20px;
-    background-image: linear-gradient(240deg, rgb(60, 207, 78,0.7),rgb(43, 122, 11,0.7));
-    transition-duration: 0.5s;
-    box-shadow: 3px 4px;
+#button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
 }
 
-#previous-quote-btn:hover {
-    background-image: linear-gradient(240deg, rgb(43, 122, 11,1),rgb(60, 207, 78,1));
-    width: 170px;
-    height: 53px;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-
-@media only screen and (max-width: 600px) {
-    body {
-        height: 100vh;
-        background: url(https://imgs.search.brave.com/VQBUsELXWtjmH4JsND8Dzjphe35no81XA_DjQ6XN1M0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYxMDA3/NDQuanBn) no-repeat center center/ cover;
-        font-family: 'Caveat', cursive;     
-    }
-     
-    #container {
-    background-color: rgb(255, 196, 196, 0.6);
-    width: 50%;
-    padding: 1rem;
-    margin: 15% auto 0px auto; 
-    text-align: center;
-    border-radius: 30px;
-    min-width: 300px;   
-    }
-
-    h2 {
-    padding: 5px;
-    color: black;
+@media only screen and (max-width: 500px) {
+    .buttons {
+        min-width: 10rem;
+        border-radius: 1rem;
+        padding: 1rem;
     }
 
     #quote-text {
-    font-size: 2rem;
+        font-size: 2rem;
     }
 
     #author-name {
-    font-size: 1.5rem;
-    }
-
-    #btn {
-    display: block;
-    margin: auto;
-    width: 15%;
-    height: 30px;
-    border-radius: 20px;
-    background-color: rgb(255, 196, 196, 0.6);
-    font-size: 1rem;
-    min-width: 100px;
-    box-shadow: 1px 2px;
+        font-size: 1.5rem;
+        
     }
 
     #quote-counter {
-    text-align: right;
-    font-size: 1rem;
+        text-align: right;
+        font-size: 1rem;
     }
-
-    .save-btn-container {
-    display: block;
-    }
-
-    #previous-quote-btn {
-    display: block;
-    font-size: 0.8rem;
-    width: 25%;
-    height: 15%;
-    margin: 20px 5%;
-    border-radius: 20px;
-    background-image: linear-gradient(240deg, rgb(60, 207, 78,0.7),rgb(43, 122, 11,0.7));
-    transition-duration: 0.5s;
-    box-shadow: 3px 4px;
-    }
-
-    #previous-quote-btn:hover {
-    background-image: linear-gradient(240deg, rgb(43, 122, 11,1),rgb(60, 207, 78,1));
-    width: 170px;
-    height: 53px;
-    font-size: 1.1rem;
-    cursor: grab;
-    }
-
+    
+    
 }

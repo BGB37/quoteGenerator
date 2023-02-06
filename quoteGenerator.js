@@ -3,7 +3,7 @@
 const container = document.getElementById('container');
 const quoteText = document.getElementById('quote-text');
 const authorName = document.getElementById('author-name');
-const btn = document.getElementById('btn');
+const btn = document.getElementById('new-quote-btn');
 const quoteCounter = document.getElementById('quote-counter');
 const previousQuoteBtn = document.getElementById('previous-quote-btn');
 const shownQuotes = [];
@@ -144,7 +144,7 @@ const quotes = [
     person:'- Vivian Greene'
     },
     {   /*33*/
-    quote: '"What we think, we become.All that we are arises with our thoughts.With our thoughts, we make the world."',
+    quote: '"What we think, we become. All that we are arises with our thoughts.With our thoughts, we make the world."',
     person:'- The Buddha'
     },
     {   /*34*/
