@@ -10,6 +10,9 @@ const shownQuotes = [];
 let count = 0;
 let shownQuoteCounter = 0;
 let temp = 0;
+var i = 0;
+var iIsLessThanZero;
+let newQuoteShown;
 const quotes = [
     {    /*0*/
         quote: '"The greatest glory in living lies not in never falling, but in rising every time we fall."',
@@ -158,6 +161,27 @@ const quotes = [
     {   /*36*/
     quote: '"When you know that you\'re capable of dealing with whatever comes, you have the only security the world has to offer."',
     person:'- Harry Browne'
+    },
+    {   /*37*/
+    quote: '"Science is the most reliable guide in life."',
+    person:'- Mustafa Kemal Ataturk'
+    },
+    {   /*38*/
+    quote: '"Victory is for those who can say "Victory is mine". Success is for those who can begin saying "I will succeed" and say "I have succeeded" in the end."',
+    person:'- Mustafa Kemal Ataturk'
+    },
+    {   /*39*/
+    quote: '"If one day, my words are against science, choose science."',
+    person:'- Mustafa Kemal Ataturk'
+    },
+    {   /*40*/
+    quote: '"People, who know that, that they will not be able to rest along the way when they took a path, will never get tired."',
+    person:'- Mustafa Kemal Ataturk'
+    }
+    ,
+    {   /*41*/
+    quote: '"Our greatest weakness lies in giving up. The most certain way to succeed is always to try just one more time."',
+    person:'- Thomas A. Edison'
     }
 ];
 
@@ -165,60 +189,100 @@ const quotes = [
 function refreshThePage() {  
     document.location.reload(true);
 }
-//What will happen when button is clicked?
 
-btn.addEventListener('click', function() {
-    // Random üretildiğinde gösterilen indis numaralarından biri mi bak. Değilse o numaralı quotu göster.
-
-    let random = Math.floor(Math.random()*quotes.length);
-    while(shownQuotes.includes(quotes[random])) 
-    {
-        random = Math.floor(Math.random()*quotes.length);
+// -------------------------------- NEXT QUOTE BUTTON --------------------------------
+btn.addEventListener('click', function() 
+{    
+    if(previousQuoteBtn.style.visibility == "hidden" && shownQuotes.length != 0) { // If user counted down to see shownQuotes and reached the beginning.
+        previousQuoteBtn.style.visibility = "visible";
+        i = 0;
+        quoteText.innerText = shownQuotes[i].quote;
+        authorName.innerText = shownQuotes[i].person;
+        newQuoteShown = false;
+    } else if(previousQuoteBtn.style.visibility == "hidden" && shownQuotes.length == 0) { // If user pressed previous quote button before pressing next quote button and now pressed new quote button.
+        previousQuoteBtn.style.visibility = "visible";
+        let random = Math.floor(Math.random() * quotes.length);  // If shownQuotes.length is 0, no need to check if the quote[random] has shown before.  
+        quoteText.innerText = quotes[random].quote;
+        authorName.innerText = quotes[random].person;
+        shownQuotes.push(quotes[random]);
+        console.log(shownQuotes);
+        newQuoteShown = true;
+    }else if(i == 0 && newQuoteShown == false && shownQuotes.length > 1) {
+        i++;
+        quoteText.innerText = shownQuotes[i].quote;
+        authorName.innerText = shownQuotes[i].person;
+    } else if(i == 0 && newQuoteShown == false && shownQuotes.length > 0) {
+        let random = Math.floor(Math.random() * quotes.length);
+        while(shownQuotes.includes(quotes[random])) 
+        {
+            random = Math.floor(Math.random()*quotes.length);
+        }
+        quoteText.innerText = quotes[random].quote;
+        authorName.innerText = quotes[random].person;
+        shownQuotes.push(quotes[random]);
+        console.log(shownQuotes);
+        newQuoteShown = true;
     }
-    quoteText.innerText = quotes[random].quote;
-    authorName.innerText = quotes[random].person;
-    
-    // Add the shown quotes in to an array to show them again when clicked on the "Previous Quote" button.
-     shownQuotes.push(quotes[random]);
-     console.log(shownQuotes);
-
-     // Code Counter
+    else if(i < shownQuotes.length - 1 && newQuoteShown == false) {
+        i++;
+        quoteText.innerText = shownQuotes[i].quote;
+        authorName.innerText = shownQuotes[i].person;
+    }
+    else  // If a new quote to be shown
+    {
+        //console.log("next quote else part executed");
+        newQuoteShown = true;
+        let random = Math.floor(Math.random() * quotes.length);
+        while(shownQuotes.includes(quotes[random])) 
+        {
+            random = Math.floor(Math.random()*quotes.length);
+        }
+        quoteText.innerText = quotes[random].quote;
+        authorName.innerText = quotes[random].person;
+        i = shownQuotes.length - 1;
+        // Add the shown quotes in to an array to show them again when clicked on the "Previous Quote" button.
+        shownQuotes.push(quotes[random]);
+        console.log(shownQuotes);
+        // Code Counter
         count++;
         //console.log(count);
-        if (count == 1) 
+        if (shownQuotes.length == quotes.length)
         {
-            quoteCounter.innerText = "You've seen 1 quote.";
-        }   
-        else if (shownQuotes.length == quotes.length)
-        {
-            quoteCounter.innerText = "You've seen all quotes.";
+            quoteCounter.innerText = " You've seen all the quotes. The page will be refreshed in 10 seconds." ;
             btn.style.visibility = "hidden";
-            setTimeout(refreshThePage, 10000); // It did not work until i passed a function as the first argument.
+            previousQuoteBtn.style.visibility = "hidden";
+            setTimeout(refreshThePage, 9000); // It did not work until i passed a function as the first argument.
         } 
         else 
         {
-            quoteCounter.innerText = "You've seen " + count + " quotes.";
+            quoteCounter.innerText = "You've seen " + count +"/" + quotes.length + " quotes.";
         }
-        //else {
-        //    quoteCounter.innerText = "You've seen " + count + " quotes.";
-        //}
-    }  
-);
-
-    // Previous Quote Button
-    let i = 2;
-    previousQuoteBtn.addEventListener('click', function() {
-    if(shownQuotes.length === 1) 
-    {
-        alert("You've only seen one quote yet!");
-    } 
-    else 
-    {
-        quoteText.innerText = shownQuotes[shownQuotes.length - i].quote;
-        authorName.innerText = shownQuotes[shownQuotes.length - i].person;
-        i++;
     }
 });
+// -------------------------------------------------------------------------------------------
+
+    //  -------------------------------- PREVIOUS QUOTE BUTTON --------------------------------
+    /* let i = 2; */
+    previousQuoteBtn.addEventListener('click', function() 
+{   
+    if(shownQuotes.length > 1 && newQuoteShown) { // Only if pressed after a new quote has shown.
+        i = shownQuotes.length - 2;
+        console.log("shownQuotes.length > 1 && newQuoteShown -- i:" + i);
+        quoteText.innerText = shownQuotes[i].quote;
+        authorName.innerText = shownQuotes[i].person;
+    } else if(i > 0) {
+        i--;
+        console.log("prevbtn -- i--; -- i:" + i);
+        quoteText.innerText = shownQuotes[i].quote;
+        authorName.innerText = shownQuotes[i].person;
+    } else {
+        quoteText.innerText = "That's the beginning of the list.";
+        authorName.innerText = "";      
+        previousQuoteBtn.style.visibility = "hidden";
+    } 
+    newQuoteShown = false;
+});
+// -------------------------------------------------------------------------------------------
 
 
 /* Ideas about the project
