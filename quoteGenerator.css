@@ -3,8 +3,9 @@
     margin: 0px;
 }
 
-body {
+body { 
     height: 100vh;
+    background-color: #ffffff;
     background: url(https://imgs.search.brave.com/VQBUsELXWtjmH4JsND8Dzjphe35no81XA_DjQ6XN1M0/rs:fit:1200:1200:1/g:ce/aHR0cHM6Ly93YWxs/cGFwZXJjYXZlLmNv/bS93cC93cDYxMDA3/NDQuanBn) no-repeat center center/ cover;
     font-family: 'Caveat', cursive;
     display: flex;
@@ -97,24 +98,5 @@ h2 {
 
 @media only screen and (max-width: 500px) {
     .buttons {
-        min-width: 10rem;
-        border-radius: 1rem;
-        padding: 1rem;
     }
-
-    #quote-text {
-        font-size: 2rem;
-    }
-
-    #author-name {
-        font-size: 1.5rem;
-        
-    }
-
-    #quote-counter {
-        text-align: right;
-        font-size: 1rem;
-    }
-    
-    
 }
